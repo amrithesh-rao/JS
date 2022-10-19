@@ -1,0 +1,15 @@
+const express = require('express');
+const { Http2ServerRequest } = require('http2');
+const https = require('https');
+const app = express();
+
+app.get("/",(req,res)=>{
+    https.get("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=46af81d60b5f415efae0e0a77d1512ce",resp=>{
+        console.log(resp);
+    });
+    res.send("hii");
+});
+
+app.listen(3001,()=>{
+    console.log("server is running");
+});
